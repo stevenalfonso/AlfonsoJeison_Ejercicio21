@@ -35,13 +35,13 @@ for i in range(10):
     l1_plot.set_xlabel('Class %i' % i,fontsize=15)
 plt.suptitle('Clasificación',fontsize=15)
 plt.savefig('coeficientes.png')
-plt.show()
+#plt.show()
 
 cm = confusion_matrix(y_test, clf.predict(x_test))
 plt.figure(figsize=(10, 10))
 plt.imshow(cm, interpolation='nearest', cmap=plt.cm.Blues)
 classNames = ['0','1','2','3','4','5','6','7','8','9']
-plt.title('Matriz de confusión',fontsize=15)
+plt.title('Matriz de confusión - Score = %0.5f' %score, fontsize=15)
 plt.ylabel('True',fontsize=15)
 plt.xlabel('Predict',fontsize=15)
 tick_marks = np.arange(len(classNames))
@@ -51,4 +51,4 @@ for i in range(10):
     for j in range(10):
         plt.text(j-0.2, i+0.1, str(cm[i][j]),fontsize=15)
 plt.savefig('confusion.png')
-plt.show()
+#plt.show()
